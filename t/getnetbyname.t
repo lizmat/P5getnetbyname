@@ -2,7 +2,7 @@ use v6.c;
 use Test;
 use P5getnetbyname;
 
-plan 7;
+plan 11;
 
 my $netname = getnetent(:scalar);
 ok ?$netname, 'did we get a net name';
@@ -21,5 +21,15 @@ is setnetent(False), 1, 'does setnetent(False) return the undocumented 1';
 is setnetent(True),  1, 'does setnetent(True) return the undocumented 1';
 
 is endnetent(), 1, 'does endnetent return the undocumented 1';
+
+is getnetbyname("thisnameshouldnotexist", :scalar), Nil,
+  'did lookup by non-existing name fail in scalar context';
+is-deeply getnetbyname("thisnameshouldnotexist"), (),
+  'did lookup by non-existing name fail';
+
+is getnetbyaddr(666, 42, :scalar), Nil,
+  'did lookup by non-existing addr fail in scalar context';
+is-deeply getnetbyaddr(666, 42), (),
+  'did lookup by non-existing addr fail';
 
 # vim: ft=perl6 expandtab sw=4
