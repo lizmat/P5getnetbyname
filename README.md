@@ -24,6 +24,25 @@ This module tries to mimic the behaviour of the `getnetbyname` and associated fu
 
     endnetent getnetbyname getnetbyaddr getnetent setnetent
 
+ORIGINAL PERL 5 DOCUMENTATION
+=============================
+
+    getnetbyname NAME
+    getnetbyaddr ADDR,ADDRTYPE
+    getnetent
+    setnetent STAYOPEN
+    endnetent
+            These routines are the same as their counterparts in the system C
+            library. In list context, the return values from the various get
+            routines are as follows:
+
+             # 0        1          2           3         4
+             ( $name,   $aliases,  $addrtype,  $net      ) = getnet*
+
+            In scalar context, you get the name, unless the function was a
+            lookup by name, in which case you get the other thing, whatever it
+            is. (If the entry doesn't exist you get the undefined value.)
+
 AUTHOR
 ======
 
