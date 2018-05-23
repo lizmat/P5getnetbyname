@@ -1,6 +1,6 @@
 use v6.c;
 
-unit module P5getnetbyname:ver<0.0.2>:auth<cpan:ELIZABETH>;
+unit module P5getnetbyname:ver<0.0.3>:auth<cpan:ELIZABETH>;
 
 use NativeCall;
 
@@ -40,12 +40,12 @@ my sub getnetbyname(Str() $name, :$scalar) is export {
     _getnetbyname($name).result(:$scalar)
 }
 
-my sub getnetbyaddr(Int:D $addrtype, Int:D $net, :$scalar) is export {
+my sub getnetbyaddr(Int:D $net, Int:D $addrtype, :$scalar) is export {
     sub _getnetbyaddr(int32, uint32 --> NetStruct)
       is native is symbol<getnetbyaddr> {*}
-    my int32 $naddrtype = $addrtype;
     my uint32 $nnet = $net;
-    _getnetbyaddr($naddrtype,$nnet).result(:$scalar)
+    my int32 $naddrtype = $addrtype;
+    _getnetbyaddr($nnet,$naddrtype).result(:$scalar)
 }
 
 my sub getnetent(:$scalar) is export {
