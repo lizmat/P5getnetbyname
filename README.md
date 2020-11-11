@@ -1,7 +1,7 @@
 NAME
 ====
 
-P5getnetbyname - Implement Perl's getnetbyname() and associated built-ins
+Raku port of Perl's getnetbyname() and associated built-ins
 
 SYNOPSIS
 ========
@@ -18,7 +18,9 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module tries to mimic the behaviour of the `getnetbyname` and associated functions of Perl as closely as possible. It exports by default:
+This module tries to mimic the behaviour of Perl's `getnetbyname` and associated built-ins as closely as possible in the Raku Programming Language.
+
+It exports by default:
 
     endnetent getnetbyname getnetbyaddr getnetent setnetent
 
@@ -41,6 +43,11 @@ ORIGINAL PERL 5 DOCUMENTATION
             lookup by name, in which case you get the other thing, whatever it
             is. (If the entry doesn't exist you get the undefined value.)
 
+PORTING CAVEATS
+===============
+
+This module depends on the availability of POSIX semantics. This is generally not available on Windows, so this module will probably not work on Windows.
+
 AUTHOR
 ======
 
@@ -51,7 +58,7 @@ Source can be located at: https://github.com/lizmat/P5getnetbyname . Comments an
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

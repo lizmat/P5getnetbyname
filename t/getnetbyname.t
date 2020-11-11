@@ -1,4 +1,4 @@
-use v6.c;
+use v6.*;
 use Test;
 use P5getnetbyname;
 %*ENV<RAKUDO_NO_DEPRECATIONS> = True;
@@ -41,4 +41,4 @@ is getnetbyaddr(666, 42, :scalar), Nil,
 is-deeply getnetbyaddr(666, 42), (),
   'did lookup by non-existing addr fail';
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

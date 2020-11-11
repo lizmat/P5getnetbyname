@@ -1,23 +1,27 @@
 {
-  "auth" : "cpan:ELIZABETH",
-  "authors" : [
+  "auth": "cpan:ELIZABETH",
+  "authors": [
     "Elizabeth Mattijsen"
   ],
-  "build-depends" : [ ],
-  "depends" : [ ],
-  "description" : "Implement Perl's getnetbyname() and associated built-ins",
-  "license" : "Artistic-2.0",
-  "name" : "P5getnetbyname",
-  "perl" : "6.c",
-  "provides" : {
-    "P5getnetbyname" : "lib/P5getnetbyname.pm6"
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Raku port of Perl's getnetbyname() and associated built-ins",
+  "license": "Artistic-2.0",
+  "name": "P5getnetbyname",
+  "perl": "6.c",
+  "provides": {
+    "P5getnetbyname": "lib/P5getnetbyname.pm6"
   },
-  "resources" : [ ],
-  "source-url" : "https://github.com/lizmat/P5getnetbyname.git",
-  "tags" : [
+  "resources": [
+  ],
+  "source-url": "https://github.com/lizmat/P5getnetbyname.git",
+  "tags": [
     "PERL5",
     "CPAN5"
   ],
-  "test-depends" : [ ],
-  "version" : "0.0.5"
+  "test-depends": [
+  ],
+  "version": "0.0.6"
 }
