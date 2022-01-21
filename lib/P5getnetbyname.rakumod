@@ -1,6 +1,4 @@
-use v6.*;
-
-unit module P5getnetbyname:ver<0.0.7>:auth<zef:lizmat>;
+unit module P5getnetbyname:ver<0.0.8>:auth<zef:lizmat>;
 
 use NativeCall;
 
@@ -36,7 +34,7 @@ my class NetStruct is repr<CStruct> {
 
 # actual NativeCall interfaces
 sub _getnetbyname(Str --> NetStruct) is native is symbol<getnetbyname> {*}
-sub _getnetbyaddr(int32, uint32 --> NetStruct) is native is symbol<getnetbyaddr> {*}
+sub _getnetbyaddr(uint32, int32 --> NetStruct) is native is symbol<getnetbyaddr> {*}
 sub _getnetent(--> NetStruct) is native is symbol<getnetent> {*}
 sub _setnetent(int32) is native is symbol<setnetent> {*}
 sub _endnetent() is native is symbol<endnetent> {*}
@@ -54,19 +52,19 @@ multi sub getnetbyname(Str() $name) { _getnetbyname($name).list }
 my proto sub getnetbyaddr(|) is export {*}
 multi sub getnetbyaddr(Scalar:U, Int:D $net, Int:D $addrtype) {
     my uint32 $nnet = $net;
-    my int32 $naddrtype = $addrtype;
+    my  int32 $naddrtype = $addrtype;
     _getnetbyaddr($nnet,$naddrtype).scalar
 }
 multi sub getnetbyaddr(Int:D $net, Int:D $addrtype, :$scalar!)
   is DEPRECATED('Scalar as first positional')
 {
     my uint32 $nnet = $net;
-    my int32 $naddrtype = $addrtype;
+    my  int32 $naddrtype = $addrtype;
     _getnetbyaddr($nnet,$naddrtype).scalar
 }
 multi sub getnetbyaddr(Int:D $net, Int:D $addrtype) {
     my uint32 $nnet = $net;
-    my int32 $naddrtype = $addrtype;
+    my  int32 $naddrtype = $addrtype;
     _getnetbyaddr($nnet,$naddrtype).list
 }
 
@@ -149,7 +147,7 @@ and Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021, 2022 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

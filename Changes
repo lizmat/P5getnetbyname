@@ -2,6 +2,11 @@ Revision history for P5getnetbyname
 
 {{$NEXT}}
 
+0.0.8  2022-01-21T17:15:31+01:00
+    - Fix uint <-> mixup that was uncovered by uint refactor
+    - Update extensions of test files
+    - Update copyright year
+
 0.0.7  2021-09-09T11:53:16+02:00
     - Change file extension to .rakumod
     - Migrate to zef ecosystem
