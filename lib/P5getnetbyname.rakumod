@@ -1,5 +1,3 @@
-unit module P5getnetbyname:ver<0.0.8>:auth<zef:lizmat>;
-
 use NativeCall;
 
 my class NetStruct is repr<CStruct> {
@@ -42,22 +40,10 @@ sub _endnetent() is native is symbol<endnetent> {*}
 # actual exported subs
 my proto sub getnetbyname(|) is export {*}
 multi sub getnetbyname(Scalar:U, Str() $name) { _getnetbyname($name).scalar }
-multi sub getnetbyname(Str() $name, :$scalar!)
-  is DEPRECATED('Scalar as first positional')
-{
-    _getnetbyname($name).scalar
-}
 multi sub getnetbyname(Str() $name) { _getnetbyname($name).list }
 
 my proto sub getnetbyaddr(|) is export {*}
 multi sub getnetbyaddr(Scalar:U, Int:D $net, Int:D $addrtype) {
-    my uint32 $nnet = $net;
-    my  int32 $naddrtype = $addrtype;
-    _getnetbyaddr($nnet,$naddrtype).scalar
-}
-multi sub getnetbyaddr(Int:D $net, Int:D $addrtype, :$scalar!)
-  is DEPRECATED('Scalar as first positional')
-{
     my uint32 $nnet = $net;
     my  int32 $naddrtype = $addrtype;
     _getnetbyaddr($nnet,$naddrtype).scalar
@@ -70,11 +56,6 @@ multi sub getnetbyaddr(Int:D $net, Int:D $addrtype) {
 
 my proto sub getnetent(|) is export {*}
 multi sub getnetent(Scalar:U) { _getnetent().scalar }
-multi sub getnetent(:$scalar!)
-  is DEPRECATED('Scalar as first positional')
-{
-    _getnetent().scalar
-}
 multi sub getnetent() { _getnetent().list }
 
 my sub setnetent($stayopen) is export {
@@ -142,12 +123,16 @@ on Windows.
 
 Elizabeth Mattijsen <liz@raku.rocks>
 
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
 Source can be located at: https://github.com/lizmat/P5getnetbyname . Comments
 and Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2019, 2020, 2021, 2022 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021, 2022, 2023 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
