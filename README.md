@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/lizmat/P5getnetbyname/actions/workflows/linux.yml/badge.svg)](https://github.com/lizmat/P5getnetbyname/actions) [![Actions Status](https://github.com/lizmat/P5getnetbyname/actions/workflows/macos.yml/badge.svg)](https://github.com/lizmat/P5getnetbyname/actions) [![Actions Status](https://github.com/lizmat/P5getnetbyname/actions/workflows/windows.yml/badge.svg)](https://github.com/lizmat/P5getnetbyname/actions)
+[![Actions Status](https://github.com/lizmat/P5getnetbyname/actions/workflows/linux.yml/badge.svg)](https://github.com/lizmat/P5getnetbyname/actions) [![Actions Status](https://github.com/lizmat/P5getnetbyname/actions/workflows/macos.yml/badge.svg)](https://github.com/lizmat/P5getnetbyname/actions)
 
 NAME
 ====

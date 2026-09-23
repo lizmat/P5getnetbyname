@@ -73,7 +73,7 @@ multi sub getnetent(:$scalar!)  # UNCOVERABLE
 {
     _getnetent().scalar
 }
-multi sub getnetent() { _getnetent().list }
+multi sub getnetent() { _getnetent().scalar }
 
 my sub setnetent($stayopen) is export {  # UNCOVERABLE
     my int32 $nstayopen = ?$stayopen;
