@@ -48,7 +48,7 @@ multi sub getnetbyname(Str() $name, :$scalar!)  # UNCOVERABLE
 multi sub getnetbyname(Str() $name) { _getnetbyname($name).list }
 
 my proto sub getnetbyaddr(|) is export {*}
-multi sub getnetbyaddr(Scalar:U, Int:D $net, Int:D $addrtype) {  # UNCOVERABLE
+multi sub getnetbyaddr(Scalar:U, Int:D $net, Int:D $addrtype) {
     my uint32 $nnet = $net;
     my  int32 $naddrtype = $addrtype;
     _getnetbyaddr($nnet,$naddrtype).scalar
@@ -60,7 +60,7 @@ multi sub getnetbyaddr(Int:D $net, Int:D $addrtype, :$scalar!)  # UNCOVERABLE
     my  int32 $naddrtype = $addrtype;
     _getnetbyaddr($nnet,$naddrtype).scalar  # UNCOVERABLE
 }
-multi sub getnetbyaddr(Int:D $net, Int:D $addrtype) {  # UNCOVERABLE
+multi sub getnetbyaddr(Int:D $net, Int:D $addrtype) {
     my uint32 $nnet = $net;
     my  int32 $naddrtype = $addrtype;
     _getnetbyaddr($nnet,$naddrtype).list
@@ -75,14 +75,14 @@ multi sub getnetent(:$scalar!)  # UNCOVERABLE
 }
 multi sub getnetent() { getnetent(Scalar) }
 
-my sub setnetent($stayopen) is export {  # UNCOVERABLE
+my sub setnetent($stayopen) is export {
     my int32 $nstayopen = ?$stayopen;
     _setnetent($nstayopen);
     # this is apparently what Perl does, although not documented
     1  # UNCOVERABLE
 }
 
-my sub endnetent() is export {  # UNCOVERABLE
+my sub endnetent() is export {
     _endnetent;
     # this is apparently what Perl does, although not documented
     1  # UNCOVERABLE
