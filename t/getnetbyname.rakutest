@@ -33,9 +33,12 @@ is getnetbyaddr(Scalar, 666, 42), Nil,
 is-deeply getnetbyaddr(666, 42), (),
   'did lookup by non-existing addr fail';
 
-$netname = getnetent(:scalar);
-ok ?$netname, 'did we get a net name (:scalar)';
 $netname = getnetent;
 ok ?$netname, 'did we get a net name (no args)';
+endnetent;
+
+$netname = getnetent(:scalar);
+ok ?$netname, 'did we get a net name (:scalar)';
+endnetent;
 
 # vim: expandtab shiftwidth=4
