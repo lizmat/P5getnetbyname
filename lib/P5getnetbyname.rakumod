@@ -71,9 +71,9 @@ multi sub getnetent(Scalar:U) { _getnetent().scalar }
 multi sub getnetent(:$scalar!)  # UNCOVERABLE
   is DEPRECATED('Scalar as first positional')
 {
-    _getnetent().scalar
+    getnetent(Scalar)
 }
-multi sub getnetent() { _getnetent().scalar }
+multi sub getnetent() { getnetent(Scalar) }
 
 my sub setnetent($stayopen) is export {  # UNCOVERABLE
     my int32 $nstayopen = ?$stayopen;
