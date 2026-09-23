@@ -10,13 +10,18 @@
   "description": "Raku port of Perl's getnetbyname() and associated built-ins",
   "license": "Artistic-2.0",
   "name": "P5getnetbyname",
-  "perl": "6.c",
   "provides": {
     "P5getnetbyname": "lib/P5getnetbyname.rakumod"
   },
+  "raku": "6.c",
   "resources": [
   ],
-  "source-url": "https://github.com/lizmat/P5getnetbyname.git",
+  "source-url": "https://codeberg.org/lizmat/P5getnetbyname.git",
+  "support": {
+    "bugtracker": "https://codeberg.org/lizmat/P5getnetbyname/issues",
+    "email": "liz@raku.rocks",
+    "source": "https://codeberg.org/lizmat/P5getnetbyname.git"
+  },
   "tags": [
     "PERL5",
     "CPAN5"

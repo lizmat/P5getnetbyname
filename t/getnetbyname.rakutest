@@ -1,9 +1,11 @@
 use Test;
 use P5getnetbyname;
 
-plan 11;
+%*ENV<RAKUDO_NO_DEPRECATIONS> = 1;
 
-my $netname = getnetent(Scalar:U);
+plan 13;
+
+my $netname = getnetent(Scalar);
 ok ?$netname, 'did we get a net name';
 
 is getnetbyname(Scalar, $netname), $netname,
@@ -30,5 +32,10 @@ is getnetbyaddr(Scalar, 666, 42), Nil,
   'did lookup by non-existing addr fail in scalar context';
 is-deeply getnetbyaddr(666, 42), (),
   'did lookup by non-existing addr fail';
+
+$netname = getnetent;
+ok ?$netname, 'did we get a net name (no args)';
+$netname = getnetent(:scalar);
+ok ?$netname, 'did we get a net name (:scalar)';
 
 # vim: expandtab shiftwidth=4
