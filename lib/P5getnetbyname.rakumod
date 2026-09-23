@@ -43,7 +43,7 @@ multi sub getnetbyname(Scalar:U, Str() $name) { _getnetbyname($name).scalar }
 multi sub getnetbyname(Str() $name, :$scalar!)  # UNCOVERABLE
   is DEPRECATED('Scalar as first positional')
 {
-    _getnetbyname($name).scalar
+    _getnetbyname($name).scalar  # UNCOVERABLE
 }
 multi sub getnetbyname(Str() $name) { _getnetbyname($name).list }
 
@@ -58,7 +58,7 @@ multi sub getnetbyaddr(Int:D $net, Int:D $addrtype, :$scalar!)  # UNCOVERABLE
 {
     my uint32 $nnet = $net;
     my  int32 $naddrtype = $addrtype;
-    _getnetbyaddr($nnet,$naddrtype).scalar
+    _getnetbyaddr($nnet,$naddrtype).scalar  # UNCOVERABLE
 }
 multi sub getnetbyaddr(Int:D $net, Int:D $addrtype) {  # UNCOVERABLE
     my uint32 $nnet = $net;
